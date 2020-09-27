@@ -8,7 +8,7 @@
 
 #import "SSFontShowViewController.h"
 
-@interface SSFontShowViewController ()
+@interface SSFontShowViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UILabel *showFontLabel;
 
@@ -27,20 +27,32 @@
 - (void)setFontNameString:(NSString *)fontNameString
 {
     _fontNameString = fontNameString;
-    self.showFontLabel.font = [UIFont fontWithName:fontNameString size:16];
     self.navigationItem.title = fontNameString;
+    self.textField.text = fontNameString;
+    self.showFontLabel.font = [UIFont fontWithName:fontNameString size:16];
 }
 
 -(UILabel *)showFontLabel
 {
     if (!_showFontLabel) {
-        _showFontLabel = [[UILabel alloc]initWithFrame:self.view.frame];
+        _showFontLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, self.view.bounds.size.height - 40)];
         _showFontLabel.numberOfLines = 0;
         _showFontLabel.textAlignment = NSTextAlignmentCenter;
-        _showFontLabel.text = @"1234567890 \n\n ABCDEFGHIJKLM \n NOPQRSTUVWXYZ \n abcdefghijklm \n nopqrstuvwxyz \n ~!@#$%^&*()_=-+"" \n {}|:?<>[];'',./\\ \n\n 汉体书写信息技术标准相容 \n 档案下载使用界面简单 \n 支援服务升级资讯专业制作 \n 创意空间快速无线上网 \n ～！@#￥%……&*（）——+｛｝| \n ：“”《》？-=【】、；‘’，。、";
+        _showFontLabel.text = @"1234567890 \n\n ABCDEFGHIJKLM \n NOPQRSTUVWXYZ \n abcdefghijklm \n nopqrstuvwxyz \n\n ~!@#$%^&*()_=-+"" \n {}|:?<>[];'',./\\ \n\n 汉体书写信息技术标准相容 \n 档案下载使用界面简单 \n 支援服务升级资讯专业制作 \n 创意空间快速无线上网 \n\n ～！@#￥%……&*（）——+｛｝| \n ：“”《》？-=【】、；‘’，。、";
         [self.view addSubview:_showFontLabel];
     }
     return _showFontLabel;
+}
+
+- (UITextField *)textField
+{
+    if (!_textField) {
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 40)];
+        _textField.textAlignment = NSTextAlignmentCenter;
+        _textField.borderStyle = UITextBorderStyleRoundedRect;
+        _textField.delegate = self;
+    }
+    return _textField;
 }
 
 @end

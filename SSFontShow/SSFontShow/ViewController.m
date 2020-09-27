@@ -11,18 +11,11 @@
 
 static NSString * const cellIdentifierString = @"cell";
 
-@interface ViewController ()
-<
-UITableViewDelegate
-,UITableViewDataSource
->
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *fontFamilyArr;
-
 @property (nonatomic, strong) NSMutableArray *fontArr;
-
 @property (nonatomic, strong) UITableView *fontTableView;
-
 
 @end
 
@@ -93,8 +86,8 @@ UITableViewDelegate
     
     NSString* fontNameString = [[self.fontArr objectAtIndex:sectionInteger] objectAtIndex:rowInteger];
     
-    cell.textLabel.text = @"中英文展示系统字体 ABCDabcd";
-    cell.textLabel.font = [UIFont fontWithName:fontNameString size:16];
+    cell.textLabel.text = @"中文字体 ABCDabcd 1234567890";
+    cell.textLabel.font = [UIFont fontWithName:fontNameString size:15];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
