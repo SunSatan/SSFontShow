@@ -86,7 +86,7 @@ static NSString * const cellIdentifierString = @"cell";
     
     NSString* fontNameString = [[self.fontArr objectAtIndex:sectionInteger] objectAtIndex:rowInteger];
     
-    cell.textLabel.text = @"中文字体 ABCDabcd 1234567890";
+    cell.textLabel.text = @"Hi 主人 下午好！";
     cell.textLabel.font = [UIFont fontWithName:fontNameString size:15];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }

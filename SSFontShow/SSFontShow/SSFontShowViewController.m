@@ -28,7 +28,7 @@
 {
     _fontNameString = fontNameString;
     self.navigationItem.title = fontNameString;
-    self.textField.text = fontNameString;
+//    self.textField.text = fontNameString;
     self.showFontLabel.font = [UIFont fontWithName:fontNameString size:16];
 }
 
@@ -44,15 +44,5 @@
     return _showFontLabel;
 }
 
-- (UITextField *)textField
-{
-    if (!_textField) {
-        _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 40)];
-        _textField.textAlignment = NSTextAlignmentCenter;
-        _textField.borderStyle = UITextBorderStyleRoundedRect;
-        _textField.delegate = self;
-    }
-    return _textField;
-}
 
 @end
